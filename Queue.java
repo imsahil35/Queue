@@ -5,8 +5,8 @@ public class Queue {
     public static int rear;
     public Queue(int size){
         this.size = size;
-        this.front = -1;
-        this.rear = -1;
+        this.front = 0;
+        this.rear = 0;
         queue  = new Object[size];
     }
     public void enqueue(Object val){
@@ -14,8 +14,8 @@ public class Queue {
 			System.out.println("Queue is Full");
 		}
 		else {
-		rear++;
 		queue[rear]=val;
+  rear++;
 		}   
     }
     public void dequeue(){
@@ -23,9 +23,12 @@ public class Queue {
             System.out.println("Queue is empty");
         }
         else{
-            front++;
             System.out.println(queue[front]);
-    
+            for(int i =0;i<rear-1;i++){
+               queue[i] = queue[i+1];
+            if(rear<=size)
+               queue[rear-1] = 0
+         rear--;
         }
     }
     public void display(){
